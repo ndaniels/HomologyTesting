@@ -1,0 +1,9 @@
+* come up with a better naming/organization system for temporary files in
+* alignment-test and query-negative-controls, capture output from smurf and
+  matt and act on segmentation faults
+* note that the whitelist is only necessary for a more recent version of the
+  Matt code: it refuses to run with any chains with less than 5 residues...
+* remove duplicate code among generate-positive-controls.py and
+  generate-negative-controls.py
+* change the argument parser for generate-csv.py: the 'output_dir' is really
+  an input_dir in this script
