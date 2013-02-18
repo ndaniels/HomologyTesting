@@ -27,6 +27,13 @@ import subprocess
 
 from gargamel.argumentparsers import StructuralAlignmentArgumentParser
 from gargamel.argumentparsers import DEFAULT_REP_ARG
+from gargamel.constants import MRFBUILD_EXECUTABLE
+from gargamel.constants import SSANNOTATE_EXECUTABLE
+from gargamel.constants import MRFY_ARGS
+from gargamel.constants import MRFY
+from gargamel.constants import MRFY_EXECUTABLE
+from gargamel.constants import MRF_FILENAME
+from gargamel.constants import MRFBUILD_OPTIONS
 from gargamel.constants import HMM_PREFIX
 from gargamel.constants import HMM_SUFFIX
 from gargamel.constants import HMMER
@@ -215,6 +222,12 @@ for sunid, pdbid_tuples in hierarchy.iteritems():
         if aligner == SMURF:
             query_cmd = [SMURF_EXECUTABLE,
                          os.path.join(aligner_output_dir, SMURF_HMM_FILENAME),
+                         fasta_filename,
+                         output_filename]
+        elif aligner == MRFY:
+            query_cmd = [MRFY_EXECUTABLE,
+                         MRFY_ARGS
+                         os.path.join(aligner_output_dir, MRF_FILENAME),
                          fasta_filename,
                          output_filename]
         elif aligner == HMMER:

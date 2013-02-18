@@ -124,7 +124,7 @@ class AlignmentArgumentParser(BaseArgumentParser):
     def __init__(self, description, epilog=DEFAULT_EPILOG):
         super(AlignmentArgumentParser, self).__init__(description, epilog)
         self.argparser.add_argument('aligner', type=str,
-                                    choices=[HMMER, SMURF, PROFILE_SMURF, SMURF_LITE], help=ALIGNER_HELP)
+                                    choices=[HMMER, SMURF, PROFILE_SMURF, SMURF_LITE, MRFY], help=ALIGNER_HELP)
         self.argparser.add_argument('-s', '--smurf_lite_threshold', default=DEFAULT_SMURF_LITE_THRESHOLD, type=str, help=THRESHOLD_HELP)
         self.argparser.add_argument('-f', '--simev_frequency', default=DEFAULT_SIMEV_FREQUENCY, type=str, help=THRESHOLD_HELP)
         self.argparser.add_argument('-c', '--simev_count', default=DEFAULT_SIMEV_COUNT, type=str, help=THRESHOLD_HELP)

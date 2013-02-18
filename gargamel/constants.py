@@ -30,12 +30,17 @@ HMMER = 'hmmer'
 SMURF = 'smurf'
 PROFILE_SMURF = 'profile-smurf'
 SMURF_LITE = 'smurf-lite'
+MRFY = 'mrfy'
+
+
+from gargamel.constants import MRFBUILD_OPTIONS
 
 # the names of the executables for querying structural aligners
 HMMER_EXECUTABLE = 'hmmsearch-a2'
 SMURF_EXECUTABLE = 'smurf'
 PROFILE_SMURF_EXECUTABLE = './run_profile_smurf.sh'
 SMURF_LITE_EXECUTABLE = 'smurf-lite'
+MRFY_EXECUTABLE = MRFY
 
 DEFAULT_SIMEV_FREQUENCY = 0
 DEFAULT_SIMEV_COUNT = 0
@@ -52,21 +57,28 @@ HMMER_HMM_FILENAME = '.'.join((HMM_PREFIX, HMMER, HMM_SUFFIX))
 SMURF_HMM_FILENAME = '.'.join((HMM_PREFIX, SMURF, HMM_SUFFIX + '+'))
 PROFILE_SMURF_HMM_FILENAME = '.'.join((HMM_PREFIX, SMURF, HMM_SUFFIX + '+'))
 SMURF_LITE_HMM_FILENAME = '.'.join((HMM_PREFIX, SMURF_LITE, HMM_SUFFIX + '+'))
-
+MRF_FILENAME = '.'.join((HMM_PREFIX, MRFY, HMM_SUFFIX + '+'))
+MRFY_ARGS = '--multipop 10 --gens 10000 --inittemp 100000 --coolfact 0.75 ' +                '--boltz 1.0 --converge 200 --simanneal'
 # executable name for smurf preparse
 SMURF_PREPARSE_EXECUTABLE = 'smurf-preparse'
 SMURF_LITE_PREPARSE_EXECUTABLE = './smurf_lite_preparse.rb'
 PROFILE_SMURF_PREPARSE_EXECUTABLE = 'smurf-preparse'
+SSANNOTATE_EXECUTABLE = 'SSAnnotate'
+SSANNOTATE_OPTIONS = '-o beta '
+
+
 
 # executable names for hmmer and smurf hmmbuild executables
 SMURF_HMMBUILD_EXECUTABLE = 'smurfbuild'
 PROFILE_SMURF_HMMBUILD_EXECUTABLE = 'smurfbuild'
 HMMER_HMMBUILD_EXECUTABLE = 'hmmbuild-a2'
 SMURF_LITE_HMMBUILD_EXECUTABLE = 'smurfbuild'
+MRFBUILD_EXECUTABLE = 'mrfbuild'
 
 HMMER_HMMBUILD_OPTIONS = '--symfrac 0.2 --eent --ere 0.7'
 SMURF_HMMBUILD_OPTIONS = '--symfrac 0.2 --eent --ere 0.7 --fragthresh 0.0' # --fragthresh 0.0
 SMURF_LITE_HMMBUILD_OPTIONS = '--symfrac 0.2 --eent --ere 0.7 --fragthresh 0.0'
+MRFBUILD_OPTIONS = '--symfrac 0.2 --eent --ere 0.7 --fragthresh 0.0'
 PROFILE_SMURF_HMMBUILD_OPTIONS = ''
 
 

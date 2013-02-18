@@ -24,22 +24,20 @@
 STATUS_ARGS=4
 
 if [ $# -lt 7 ]; then
-    echo "Usage: $0 <output-dir> <superfamily-sunid> <beta-threshold> <run-hmmer> <simev-freq> <simev-count> <simev-threshold> [skip-matt]"
+    echo "Usage: $0 <output-dir> <superfamily-sunid> <beta-threshold> <run-hmmer> <simev> [skip-matt]"
     exit $STATUS_ARGS
 fi
 
 OUTPUT_DIR=$1
 SUPERFAMILY=$2
-SKIPMATT=$3
+SIMEV=$3
+SKIPMATT=$4
 
 ### vary: beta threshold, simev freq (10, 50), simev threshold (0, same as beta)
 
 # these args go to generate-hmm (freq, simev threshold, simev count)
 
-HMMER=hmmer
-SMURF=smurf
-PROFILE_SMURF=profile-smurf
-SMURF_LITE=smurf-lite
+MRFY=mrfy
 
 # generate the consensus multiple alignment template
 if [ -z $SKIPMATT ]; then
@@ -50,27 +48,27 @@ if [ -z $SKIPMATT ]; then
     fi
 fi
 
-# run smurf-lite queries
-./generate-hmm.py -v $OUTPUT_DIR $SMURF_LITE -s $THRESHOLD -f $SIMEV_FREQ -c $SIMEV_COUNT -t $SIMEV_THRESHOLD
+if [$SIMEV -eq 1]; then
+
+# run queries
+./generate-mrf.py -v $OUTPUT_DIR -f 0.5 -c 150 -t 0
 
 if [ $? -ne 0 ]; then
-    echo "generate-hmm.py exited with status $?"
+    echo "generate-mrf.py exited with status $?"
     exit $?
 fi
 
-./generate-positive-controls.py -v -r nonident $OUTPUT_DIR $SMURF_LITE $SUPERFAMILY
+./generate-positive-controls.py -v -r nonident $OUTPUT_DIR $MRFY $SUPERFAMILY
 if [ $? -ne 0 ]; then
     echo "generate-positive-controls.py exited with status $?"
     exit $?
 fi
 
-./generate-negative-controls.py -v -r blast7 $OUTPUT_DIR $SMURF_LITE $SUPERFAMILY
+./generate-negative-controls.py -v -r blast7 $OUTPUT_DIR $MRFY $SUPERFAMILY
 if [ $? -ne 0 ]; then
     echo "generate-negative-controls.py exited with status $?"
     exit $?
 fi
-
-# generate smurf-lite csv
 
 ./generate-csv.py -v $OUTPUT_DIR $SMURF_LITE
 if [ $? -ne 0 ]; then
