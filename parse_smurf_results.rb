@@ -5,7 +5,7 @@
 results_dir = ARGV[0]
 results = []
 threshold = ARGV[1].to_f
-SCOP = '/r/bcb/protein_structure/dir.des.scop.txt_1.75.txt'
+SCOP = '/r/bcb/protein_structure/SCOP/dir.des.scop.txt_1.75.txt'
 
 def parse_file(filename, superfamily, threshold)
   results = []
