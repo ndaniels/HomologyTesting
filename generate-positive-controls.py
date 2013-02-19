@@ -226,7 +226,7 @@ for sunid, pdbid_tuples in hierarchy.iteritems():
                          output_filename]
         elif aligner == MRFY:
             query_cmd = [MRFY_EXECUTABLE,
-                         MRFY_ARGS,
+                         # MRFY_ARGS,
                          os.path.join(aligner_output_dir, MRF_FILENAME),
                          fasta_filename,
                          output_filename]
