@@ -4,29 +4,29 @@
 
 # usage: smurf-preparse <structure pdb> <alignment fasta> <output ssi>
 
-usage = "usage: #{$0} <structure pdb> <alignment fasta> <output ssi> <mutation_rate> <num_seq> <blast_augment?>"
+usage = "usage: #{$0} <fasta/pdb/ssi base> <mutation_rate> <num_seq> <blast_augment?>"
 
-structure = ARGV[0]
+filebase = ARGV[0]
 
-alignment = ARGV[1]
+mutation_rate = ARGV[1]
 
-output = ARGV[2]
+num_seq = ARGV[2]
 
-mutation_rate = ARGV[3]
+blast_augmentation = ( ARGV[3] && ARGV[3].downcase == 'true' )
 
-num_seq = ARGV[5]
-
-blast_augmentation = ( ARGV[6] && ARGV[6].downcase == 'true' )
+output = filebase + '.ssi'
 
 backup_output = output.gsub('mrfy', 'mrfy_bak')
-temp_output = output.gsub('mrfy', 'mrfy_temp')
+File.copy(output, backup_output)
 
-cmd = "SSAnnotate -o beta #{structure} #{alignment} #{temp_output}"
+cmd = "SSAnnotate -o beta #{filebase}"
 puts "running #{cmd}"
 
 system(cmd)
 
-File.copy(temp_output, backup_output)
+File.copy(output, backup_output)
+
+temp_output = output.gsub('mrfy', 'mrfy_temp')
 
 if num_seq && mutation_rate
   mutation_output = temp_output.gsub('_temp', '_temp_m')

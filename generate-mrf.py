@@ -158,9 +158,7 @@ for sunid in sunids:
                       ]
     else:
       preparse_cmd = [preparse_executable,
-                      os.path.join(level_output_dir, MATT_PREFIX + '.pdb'),
-                      os.path.join(level_output_dir, MATT_PREFIX + '.fasta'),
-                      mult_alignment_file
+                      os.path.join(level_output_dir, MATT_PREFIX),
                       ]
     logger.debug('  ' + ' '.join(preparse_cmd))
     return_code = subprocess.call(preparse_cmd)
