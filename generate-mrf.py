@@ -27,6 +27,7 @@ from gargamel.argumentparsers import MrfArgumentParser
 from gargamel.constants import MRFBUILD_EXECUTABLE
 from gargamel.constants import SSANNOTATE_EXECUTABLE
 from gargamel.constants import MRF_FILENAME
+from gargamel.constants import MRFY
 from gargamel.constants import MRFBUILD_OPTIONS
 from gargamel.constants import HMM_SUFFIX
 from gargamel.constants import HMM_PREFIX
