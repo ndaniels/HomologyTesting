@@ -58,7 +58,7 @@ SMURF_HMM_FILENAME = '.'.join((HMM_PREFIX, SMURF, HMM_SUFFIX + '+'))
 PROFILE_SMURF_HMM_FILENAME = '.'.join((HMM_PREFIX, SMURF, HMM_SUFFIX + '+'))
 SMURF_LITE_HMM_FILENAME = '.'.join((HMM_PREFIX, SMURF_LITE, HMM_SUFFIX + '+'))
 MRF_FILENAME = '.'.join((HMM_PREFIX, MRFY, HMM_SUFFIX + '+'))
-MRFY_ARGS = '--multipop 10 --gens 10000 --inittemp 100000 --coolfact 0.75 ' +                '--boltz 1.0 --converge 200 --simanneal'
+MRFY_ARGS = ''
 # executable name for smurf preparse
 SMURF_PREPARSE_EXECUTABLE = 'smurf-preparse'
 SMURF_LITE_PREPARSE_EXECUTABLE = './smurf_lite_preparse.rb'
