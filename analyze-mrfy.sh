@@ -23,8 +23,8 @@
 
 STATUS_ARGS=4
 
-if [ $# -lt 7 ]; then
-    echo "Usage: $0 <output-dir> <superfamily-sunid> <beta-threshold> <run-hmmer> <simev> [skip-matt]"
+if [ $# -lt 4 ]; then
+    echo "Usage: $0 <output-dir> <superfamily-sunid> <simev> [skip-matt]"
     exit $STATUS_ARGS
 fi
 
