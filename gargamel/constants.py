@@ -32,9 +32,6 @@ PROFILE_SMURF = 'profile-smurf'
 SMURF_LITE = 'smurf-lite'
 MRFY = 'mrfy'
 
-
-from gargamel.constants import MRFBUILD_OPTIONS
-
 # the names of the executables for querying structural aligners
 HMMER_EXECUTABLE = 'hmmsearch-a2'
 SMURF_EXECUTABLE = 'smurf'
@@ -77,7 +74,8 @@ SMURF_LITE_HMMBUILD_EXECUTABLE = 'smurfbuild'
 MRFBUILD_EXECUTABLE = 'mrfbuild'
 
 HMMER_HMMBUILD_OPTIONS = '--symfrac 0.2 --eent --ere 0.7'
-SMURF_HMMBUILD_OPTIONS = '--symfrac 0.2 --eent --ere 0.7 --fragthresh 0.0' # --fragthresh 0.0
+SMURF_HMMBUILD_OPTIONS = '--symfrac 0.2 --eent --ere 0.7 --fragthresh 0.0' 
+# --fragthresh 0.0
 SMURF_LITE_HMMBUILD_OPTIONS = '--symfrac 0.2 --eent --ere 0.7 --fragthresh 0.0'
 MRFBUILD_OPTIONS = '--symfrac 0.2 --eent --ere 0.7 --fragthresh 0.0'
 PROFILE_SMURF_HMMBUILD_OPTIONS = ''
