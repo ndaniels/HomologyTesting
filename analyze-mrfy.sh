@@ -49,9 +49,9 @@ if [ -z $SKIPMATT ]; then
 fi
 
 if [ $SIMEV -eq 1 ]; then
-  ./generate-mrf.py -v $OUTPUT_DIR -f 0.5 -c 150 -t 0
+  ./generate-mrf.py -v $OUTPUT_DIR $MRFY -f 0.5 -c 150 -t 0
 else
-  ./generate-mrf.py -v $OUTPUT_DIR -f 0.0 -c 0 -t 0
+  ./generate-mrf.py -v $OUTPUT_DIR $MRFY -f 0.0 -c 0 -t 0
 fi
 
 
