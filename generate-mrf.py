@@ -23,7 +23,7 @@ import subprocess
 import sys
 
 
-from gargamel.argumentparsers import AlignmentArgumentParser
+from gargamel.argumentparsers import MrfArgumentParser
 from gargamel.constants import MRFBUILD_EXECUTABLE
 from gargamel.constants import SSANNOTATE_EXECUTABLE
 from gargamel.constants import MRF_FILENAME
@@ -58,7 +58,7 @@ PROGRAM_DESCRIPTION = 'Generates HMM files from multiple alignment files ' + \
 
 # create a parser for command-line arguments, with a description of the purpose
 # of this program
-argparser = AlignmentArgumentParser(PROGRAM_DESCRIPTION)
+argparser = MrfArgumentParser(PROGRAM_DESCRIPTION)
 
 # parse the command-line arguments
 parsed_args = argparser.parse_args()

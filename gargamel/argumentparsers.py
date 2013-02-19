@@ -129,6 +129,15 @@ class AlignmentArgumentParser(BaseArgumentParser):
         self.argparser.add_argument('-f', '--simev_frequency', default=DEFAULT_SIMEV_FREQUENCY, type=str, help=THRESHOLD_HELP)
         self.argparser.add_argument('-c', '--simev_count', default=DEFAULT_SIMEV_COUNT, type=str, help=THRESHOLD_HELP)
         self.argparser.add_argument('-t', '--simev_threshold', default=DEFAULT_SIMEV_THRESHOLD, type=str, help=THRESHOLD_HELP)
+        
+class MrfArgumentParser(BaseArgumentParser):
+    def __init__(self, description, epilog=DEFAULT_EPILOG):
+        super(AlignmentArgumentParser, self).__init__(description, epilog)
+        self.argparser.add_argument('aligner', type=str,
+                                    choices=[MRFY], help=ALIGNER_HELP)
+        self.argparser.add_argument('-f', '--simev_frequency', default=DEFAULT_SIMEV_FREQUENCY, type=str, help=THRESHOLD_HELP)
+        self.argparser.add_argument('-c', '--simev_count', default=DEFAULT_SIMEV_COUNT, type=str, help=THRESHOLD_HELP)
+        self.argparser.add_argument('-t', '--simev_threshold', default=DEFAULT_SIMEV_THRESHOLD, type=str, help=THRESHOLD_HELP)
 
 class MultipleAlignmentArgumentParser(SuperfamilyArgumentParser):
     """Argument parser for generating multiple alignments (for example, in the
