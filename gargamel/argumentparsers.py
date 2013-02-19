@@ -27,7 +27,7 @@ from argparse import Action
 from argparse import ArgumentParser
 
 from constants import VERSION_NUMBER
-from constants import HMMER, SMURF, PROFILE_SMURF, SMURF_LITE, DEFAULT_SMURF_LITE_THRESHOLD, DEFAULT_SIMEV_FREQUENCY, DEFAULT_SIMEV_COUNT, DEFAULT_SIMEV_THRESHOLD
+from constants import HMMER, SMURF, PROFILE_SMURF, SMURF_LITE, DEFAULT_SMURF_LITE_THRESHOLD, DEFAULT_SIMEV_FREQUENCY, DEFAULT_SIMEV_COUNT, DEFAULT_SIMEV_THRESHOLD, MRFY
 from nrpdb import RepresentativeFields
 from scop import Keys
 
