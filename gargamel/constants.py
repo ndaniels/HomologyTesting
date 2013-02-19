@@ -65,6 +65,7 @@ SMURF_LITE_PREPARSE_EXECUTABLE = './smurf_lite_preparse.rb'
 PROFILE_SMURF_PREPARSE_EXECUTABLE = 'smurf-preparse'
 SSANNOTATE_EXECUTABLE = 'SSAnnotate'
 SSANNOTATE_OPTIONS = '-o beta '
+SIMEV_MRFY_SSANOTATE_EXECUTABLE = "./mrfy_simev_preparse.rb"
 
 
 

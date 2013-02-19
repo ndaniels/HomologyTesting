@@ -22,11 +22,6 @@ import os.path
 import subprocess
 import sys
 
-    if aligner == MRFY:
-        executable = MRFBUILD_EXECUTABLE
-        preparse_executable = SSANNOTATE_EXECUTABLE
-        hmm_filename = MRF_FILENAME
-        hmmbuild_options = MRFBUILD_OPTIONS
 
 from gargamel.argumentparsers import AlignmentArgumentParser
 from gargamel.constants import MRFBUILD_EXECUTABLE
@@ -115,7 +110,10 @@ for sunid in sunids:
     # hmmbuild step, and determine the name of the HMM file
     if aligner == MRFY:
         executable = MRFBUILD_EXECUTABLE
-        preparse_executable = SSANNOTATE_EXECUTABLE
+        if float(simev_frequency) > 0.0:
+          preparse_executable = SIMEV_MRFY_SSANOTATE_EXECUTABLE
+        else:
+          preparse_executable = SSANNOTATE_EXECUTABLE
         hmm_filename = MRF_FILENAME
         hmmbuild_options = MRFBUILD_OPTIONS
     elif aligner == HMMER:
@@ -171,9 +169,9 @@ for sunid in sunids:
     # matt (specifically, the .ssi file)
     
     logger.debug('Running mrfbuild...')
-    hmmbuild_cmd = filter(lambda x: len(x)>0, [executable,
-                    hmmbuild_options,
-                    os.path.join(aligner_output_dir, hmm_filename),
+    mrfbuild_cmd = filter(lambda x: len(x)>0, [executable,
+                    mrfbuild_options,
+                    os.path.join(aligner_output_dir, mrf_filename),
                     mult_alignment_file])
     logger.debug('  ' + ' '.join(mrfbuild_cmd))
       

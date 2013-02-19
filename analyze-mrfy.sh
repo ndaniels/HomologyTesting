@@ -50,8 +50,11 @@ fi
 
 if [$SIMEV -eq 1]; then
 
-# run queries
-./generate-mrf.py -v $OUTPUT_DIR -f 0.5 -c 150 -t 0
+  ./generate-mrf.py -v $OUTPUT_DIR -f 0.5 -c 150 -t 0
+else
+  ./generate-mrf.py -v $OUTPUT_DIR -f 0.0 -c 0 -t 0
+fi
+
 
 if [ $? -ne 0 ]; then
     echo "generate-mrf.py exited with status $?"
