@@ -25,7 +25,7 @@ require_python_version(2, 7)
 import gzip
 
 # the FASTA file containing all protein sequences, along with their PDB IDs
-FASTA_FILENAME = '/r/bcb/protein_structure/pdb_seqres.fasta.gz'
+FASTA_FILENAME = '/r/bcb/protein_structure/PDB/pdb_seqres.fasta'
 
 def sequences_from_file(filename):
     """Read the specified file containing multiple sequences in FASTA format
