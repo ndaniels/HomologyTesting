@@ -37,7 +37,7 @@ from Bio.SCOP.Cla import parse as cla_parse
 # sixth column - list of SUNIDs for that domain: class (cl), fold (cf),
 #                superfamily(sf), family (fa), protein domain (dm),
 #                species (sp), and domain entry (px)
-SCOP_CLASSIFICATION_FILE = '/r/bcb/protein_structure/scop_cla'
+SCOP_CLASSIFICATION_FILE = '/r/bcb/protein_structure/SCOP/scop_cla'
 
 class Keys:
     """The keys for SUNIDs in the SCOP Classification hierarchy."""
