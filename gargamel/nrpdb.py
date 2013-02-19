@@ -25,7 +25,7 @@ require_python_version(2, 7)
 from logger import logger
 
 # the path to the NRPDB file
-NRPDB_FILENAME = '/r/bcb/protein_structure/nrpdb'
+NRPDB_FILENAME = '/r/bcb/protein_structure/NRPDB/nrpdb'
 
 class RepresentativeFields:
     """The columns in the NRPDB file at which the representative flag for each
