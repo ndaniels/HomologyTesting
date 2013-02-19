@@ -132,7 +132,7 @@ class AlignmentArgumentParser(BaseArgumentParser):
         
 class MrfArgumentParser(BaseArgumentParser):
     def __init__(self, description, epilog=DEFAULT_EPILOG):
-        super(AlignmentArgumentParser, self).__init__(description, epilog)
+        super(MrfArgumentParser, self).__init__(description, epilog)
         self.argparser.add_argument('aligner', type=str,
                                     choices=[MRFY], help=ALIGNER_HELP)
         self.argparser.add_argument('-f', '--simev_frequency', default=DEFAULT_SIMEV_FREQUENCY, type=str, help=THRESHOLD_HELP)
