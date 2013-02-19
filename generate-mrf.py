@@ -169,8 +169,8 @@ for sunid in sunids:
     
     logger.debug('Running mrfbuild...')
     mrfbuild_cmd = filter(lambda x: len(x)>0, [executable,
-                    mrfbuild_options,
-                    os.path.join(aligner_output_dir, mrf_filename),
+                    hmmbuild_options,
+                    os.path.join(aligner_output_dir, hmm_filename),
                     mult_alignment_file])
     logger.debug('  ' + ' '.join(mrfbuild_cmd))
       
