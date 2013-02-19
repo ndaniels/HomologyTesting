@@ -145,12 +145,10 @@ for sunid in sunids:
     # call smurf-preparse to set up beta strand goodness
     logger.debug('Running SSAnnotate...')
     mult_alignment_file = os.path.join(level_output_dir,
-                                       MATT_PREFIX + '_' + aligner + '.ssi')
+                                       MATT_PREFIX + '.ssi')
     if float(simev_frequency) > 0.0:        
       preparse_cmd = [preparse_executable,
-                      os.path.join(level_output_dir, MATT_PREFIX + '.pdb'),
-                      os.path.join(level_output_dir, MATT_PREFIX + '.fasta'),
-                      mult_alignment_file,
+                      os.path.join(level_output_dir, MATT_PREFIX),
                       simev_frequency,
                       simev_count,
                       simev_threshold,
