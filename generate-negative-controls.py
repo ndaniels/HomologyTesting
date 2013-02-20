@@ -220,7 +220,7 @@ for sunid in [sunids[1]]:
         # open a FASTA file to which to write the sequence
         fasta_filename = os.path.join(TMP_DIR, 'pdb' + bare_pdbid + '.fasta')
         logger.debug('  Checking whether FASTA file for ' + str(pdbid)
-                     + 'exists...')
+                     + ' exists...')
         if not os.path.isfile(fasta_filename):
             logger.debug('  ...it doesn\'t, so we create it...')
             with open(fasta_filename, 'w') as fasta_file:
