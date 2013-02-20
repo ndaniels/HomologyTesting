@@ -72,7 +72,7 @@ if [ $? -ne 0 ]; then
     exit $?
 fi
 
-./generate-csv.py -v $OUTPUT_DIR $SMURF_LITE
+./generate-csv.py -v $OUTPUT_DIR $MRFY
 if [ $? -ne 0 ]; then
     echo "generate-csv.py exited with status $?"
     exit $?
