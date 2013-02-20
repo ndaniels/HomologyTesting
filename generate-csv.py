@@ -88,7 +88,7 @@ def parse_mrfy_output(filename):
         if read_value[0:8] == 'Sequence':
           return pdbid, chainid, None
         strVal = read_value[11:]
-        if strVal[0:7] == 'Infinity';
+        if strVal[0:7] == 'Infinity':
           return pdbid, chainid, 1000000
         rawscore = float(strVal)
         # logger.debug('read: ' + str(rawscore))
