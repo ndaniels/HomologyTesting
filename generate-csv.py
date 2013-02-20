@@ -25,6 +25,7 @@ import sys
 from gargamel.argumentparsers import BaseArgumentParser
 from gargamel.argumentparsers import AlignmentArgumentParser
 from gargamel.constants import HMMER
+from gargamel.constants import MRFY
 from gargamel.constants import SMURF
 from gargamel.constants import PROFILE_SMURF
 from gargamel.constants import SMURF_LITE
@@ -74,6 +75,25 @@ def write_csv_readme(filename):
     """Writes README information for the CSV file created by this script."""
     with open(filename, 'w') as f:
         f.write(CSV_README + '\n')
+
+def parse_mrfy_output(filename):
+    logger.debug('parsing from file: ' + filename)
+    with open(filename, 'r') as f:
+        pdb_str = f.readline()[1:7]
+        # logger.debug('read: ' + pdb_str)
+        if len(pdb_str) < 6:
+          return None, None, None
+        pdbid, chainid = pdb_str.split('_')
+        read_value = f.readline()
+        if read_value[0:8] == 'Sequence':
+          return pdbid, chainid, None
+        strVal = read_value[11:]
+        if strVal[0:7] == 'Infinity';
+          return pdbid, chainid, 1000000
+        rawscore = float(strVal)
+        # logger.debug('read: ' + str(rawscore))
+    return pdbid, chainid, rawscore
+
 
 def parse_smurf_output(filename):
     logger.debug('parsing from file: ' + filename)
@@ -185,11 +205,16 @@ for family in families:
             if aligner == SMURF or aligner == PROFILE_SMURF or aligner == SMURF_LITE:
               # get the PDB ID, chain ID, and raw score
               pdbid, chainid, rawscore = parse_smurf_output(f)
+              if rawscore == None:
+                rawscore == -1000.0
+            elif aligner == MRFY:
+              pdbid, chainid, rawscore = parse_mrfy_output(f)
+              if rawscore == None:
+                rawscore == 1000000
             else:
-              pdbid, chainid, rawscore = parse_hmmer_output(f)
-              
-            if rawscore == None:
-              rawscore = -1000.0
+              pdbid, chainid, rawscore = parse_hmmer_output(f)              
+              if rawscore == None:
+                rawscore = -1000.0
 
             # write to the csv file
             if pdbid != None:
@@ -203,11 +228,18 @@ for family in families:
               if aligner == SMURF or aligner == PROFILE_SMURF or aligner == SMURF_LITE:
                 # get the PDB ID, chain ID, and raw score
                 pdbid, chainid, rawscore = parse_smurf_output(f)
+                if rawscore == None:
+                  rawscore == -1000.0
+              elif aligner == MRFY:
+                pdbid, chainid, rawscore = parse_mrfy_output(f)
+                if rawscore == None:
+                  rawscore == 1000000
               else:
                 pdbid, chainid, rawscore = parse_hmmer_output(f)
+                if rawscore == None:
+                  rawscore == -1000.0
                 
-              if rawscore == None:
-                rawscore == -1000.0
+              
         
               # write to the csv file
               if pdbid != None:
