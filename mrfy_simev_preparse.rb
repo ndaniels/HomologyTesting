@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-
+require 'fileutils'
 # this takes the same arguments that smurf-preparse would plus an 'interleave'
 
 # usage: smurf-preparse <structure pdb> <alignment fasta> <output ssi>
@@ -17,14 +17,14 @@ blast_augmentation = ( ARGV[3] && ARGV[3].downcase == 'true' )
 output = filebase + '.ssi'
 
 backup_output = output.gsub('mrfy', 'mrfy_bak')
-File.copy(output, backup_output)
+FileUtils.copy(output, backup_output)
 
 cmd = "SSAnnotate -o beta #{filebase}"
 puts "running #{cmd}"
 
 system(cmd)
 
-File.copy(output, backup_output)
+FileUtils.copy(output, backup_output)
 
 temp_output = output.gsub('mrfy', 'mrfy_temp')
 
@@ -50,4 +50,4 @@ end
 #
 # now write real output
 
-File.copy(temp_output, output)
+FileUtils.copy(temp_output, output)
