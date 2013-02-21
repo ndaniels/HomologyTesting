@@ -29,7 +29,7 @@ FileUtils.copy(output, backup_output)
 temp_output = output.gsub('mattAlignment', 'mattAlignment_temp')
 
 if num_seq && mutation_rate
-  puts "mutating, output: #{mutation_output}"
+  puts "mutating, output: #{temp_output}"
   cmd = "./sim_ev.rb #{output} #{temp_output} #{mutation_rate} #{num_seq} 0"
   puts "running #{cmd}"
   system(cmd)
