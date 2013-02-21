@@ -31,7 +31,6 @@ temp_output = output.gsub('mattAlignment', 'mattAlignment_temp')
 if num_seq && mutation_rate
   puts "mutating, output: #{mutation_output}"
   cmd = "./sim_ev.rb #{output} #{temp_output} #{mutation_rate} #{num_seq} 0"
-  temp_output = mutation_output
   puts "running #{cmd}"
   system(cmd)
 end
