@@ -26,6 +26,7 @@ import sys
 from gargamel.argumentparsers import MrfArgumentParser
 from gargamel.constants import MRFBUILD_EXECUTABLE
 from gargamel.constants import SSANNOTATE_EXECUTABLE
+from gargamel.constants import SIMEV_MRFY_SSANOTATE_EXECUTABLE
 from gargamel.constants import MRF_FILENAME
 from gargamel.constants import MRFY
 from gargamel.constants import MRFBUILD_OPTIONS
