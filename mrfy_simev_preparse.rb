@@ -29,9 +29,8 @@ FileUtils.copy(output, backup_output)
 temp_output = output.gsub('mattAlignment', 'mattAlignment_temp')
 
 if num_seq && mutation_rate
-  mutation_output = temp_output.gsub('_temp', '_temp_m')
   puts "mutating, output: #{mutation_output}"
-  cmd = "./sim_ev.rb #{temp_output} #{mutation_output} #{mutation_rate} #{num_seq} 0"
+  cmd = "./sim_ev.rb #{output} #{temp_output} #{mutation_rate} #{num_seq} 0"
   temp_output = mutation_output
   puts "running #{cmd}"
   system(cmd)
