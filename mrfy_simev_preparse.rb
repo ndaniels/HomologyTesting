@@ -14,9 +14,9 @@ num_seq = ARGV[2]
 
 blast_augmentation = ( ARGV[3] && ARGV[3].downcase == 'true' )
 
-output = filebase + '.ssi'
+output = filebase + '.ssi' # TODO fix this so we don't blow away 'mrfy' earlier in path
 
-backup_output = output.gsub('mrfy', 'mrfy_bak')
+backup_output = output.gsub('mattAlignment', 'mattAlignment_bak')
 FileUtils.copy(output, backup_output)
 
 cmd = "SSAnnotate -o beta #{filebase}"
@@ -26,7 +26,7 @@ system(cmd)
 
 FileUtils.copy(output, backup_output)
 
-temp_output = output.gsub('mrfy', 'mrfy_temp')
+temp_output = output.gsub('mattAlignment', 'mattAlignment_temp')
 
 if num_seq && mutation_rate
   mutation_output = temp_output.gsub('_temp', '_temp_m')
